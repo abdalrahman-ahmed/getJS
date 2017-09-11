@@ -70,6 +70,6 @@
         }
     };
 
-    win.getjs = win.getJS = win.requestURL = getjs;
+    win.getjs = win.getJS = getjs;
     win.extraLoad = {list:[],callback:[],get:{css:css,js:js},loading:false};
 }(window));
