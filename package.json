@@ -11,7 +11,10 @@
 		"url": "https://github.com/abdalrahman-ahmed/getJS.git"
 	},
 	"keywords": [
-		"get"
+		"get",
+		"load",
+		"js",
+		"css"
 	],
 	"author": "Abdalrahman Ahmed <abdalrahman@s3geeks.com>",
 	"license": "MIT",
