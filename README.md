@@ -12,7 +12,7 @@ Then call it by passing it a JavaScript URL:
 <head>
 	...
 	<!-- include getJS here... -->
-	<script src="getJS.s"></script>
+	<script src="getJS.js"></script>
 	<!-- just example... -->
 	<script>
 		getJS( url, callback );
