@@ -6,13 +6,17 @@
         link.rel = "stylesheet";
         link.href = href;
 
-        var onload = function(){
+        link.onload = function(e){
             for(i in doc.styleSheets)
-                if(d = doc.styleSheets[i].href == link.href) break;
-            return setTimeout(d ? callback : onload);
+                if(d = doc.styleSheets[i].href == e.target.href)
+                    return typeof callback === 'function' ? callback() : null;
+            return setTimeout(e.target.onload);
         };
-
-        link.onload = typeof callback == 'function' ? onload() : null;
+        
+        link.onerror = function(e){
+            console.error('Error '+e.target.tagName+':'+e.target.href+' failed loading.');
+            return typeof callback === 'function' ? callback() : null;
+        }
 
         doc.head.appendChild(link);
         
@@ -24,7 +28,12 @@
         script.src = src;
         script.async = true;
 
-        script.onload = callback;
+        script.onload = typeof callback == 'function' ? callback : null;
+
+        script.onerror = function(e){
+            console.error('Error '+e.target.tagName+':'+e.target.src+' failed loading.');
+            return typeof callback === 'function' ? callback() : null;
+        };
 
         doc.head.appendChild(script);
         
